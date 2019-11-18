@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/StaticApp.dir/main.cpp.o  -o StaticApp  -L/home/m-debian/googletest/build/lib 

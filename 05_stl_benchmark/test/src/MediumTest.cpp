@@ -106,3 +106,38 @@ TEST(MediumTest, Clear) {
 }
 
 // TODO: Add tests for your operators implementation!
+
+TEST(MediumTest, IsEqual)
+{
+    Medium a{3,3};
+    Medium b{1,5};
+    Medium c{3,5};
+    Medium d{3,3};
+    EXPECT_EQ(a==b, 0);
+    EXPECT_EQ(a==c, 0);
+    EXPECT_EQ(a==d, 1);
+}
+
+TEST(MediumTest, IsLessThan)
+{
+    Medium a{3,3};
+    Medium b{1,5};
+    Medium c{5,5};
+    Medium d{3,3};
+    EXPECT_EQ(a<b, 0);
+    EXPECT_EQ(a<c, 1);
+    EXPECT_EQ(a<d, 0);
+}
+
+TEST(MediumTest, IsKeyEqual)
+{
+    Medium medium{};
+    std::hash<Medium> hash;
+    std::size_t secondKey = std::hash<int>{}(medium.data[0]);
+    for(int i=1; i<medium.SIZE;i++)
+    {
+        secondKey &= std::hash<int> {} (medium.data[i]);
+    }
+
+    EXPECT_EQ(hash(medium), secondKey);
+}

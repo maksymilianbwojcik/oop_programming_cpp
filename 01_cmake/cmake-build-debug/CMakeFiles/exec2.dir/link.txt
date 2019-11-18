@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/exec2.dir/test.cpp.o  -o exec2  -L/home/m-debian/googletest/build/lib -Wl,-rpath,/home/m-debian/googletest/build/lib lib01_cmake_lib.a -lpthread -lgtest -lgtest_main 

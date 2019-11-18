@@ -113,3 +113,34 @@ TEST(SmallTest, Clear) {
 
 
 // TODO: Add tests for your operators implementation!
+
+TEST(SmallTest, IsEqual)
+{
+    Small a{3};
+    Small b{1};
+    Small c{5};
+    Small d{3};
+    EXPECT_EQ(a==b, 0);
+    EXPECT_EQ(a==c, 0);
+    EXPECT_EQ(a==d, 1);
+}
+
+TEST(SmallTest, IsLessThan)
+{
+    Small a{3};
+    Small b{1};
+    Small c{5};
+    Small d{3};
+    EXPECT_EQ(a<b, 0);
+    EXPECT_EQ(a<c, 1);
+    EXPECT_EQ(a<d, 0);
+}
+
+TEST(SmallTest, IsHashEqual)
+{
+    Small a{'c'};
+    std::size_t hashed1 = std::hash<char>{}(a.data[0]);
+    std::hash <char> fubar;
+    std::size_t hashed2 = fubar(a.data[0]);
+    EXPECT_EQ(hashed1, hashed2);
+}

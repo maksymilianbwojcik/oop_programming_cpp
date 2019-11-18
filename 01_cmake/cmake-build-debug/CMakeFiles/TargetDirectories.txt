@@ -1,0 +1,5 @@
+/home/m-debian/Documents/Semestr 5/OOP/01_cmake/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/m-debian/Documents/Semestr 5/OOP/01_cmake/cmake-build-debug/CMakeFiles/exec2.dir
+/home/m-debian/Documents/Semestr 5/OOP/01_cmake/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/m-debian/Documents/Semestr 5/OOP/01_cmake/cmake-build-debug/CMakeFiles/01_cmake_lib.dir
+/home/m-debian/Documents/Semestr 5/OOP/01_cmake/cmake-build-debug/CMakeFiles/exec.dir

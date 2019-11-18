@@ -17,9 +17,13 @@ Make sure that you understand given point before stepping to next one.
     Report content hints:
 
     1. How to define correct less-than operator? What should it do for N-dimensional data such as our table?
+    like implemented
     2. What is the optimal implementation for equality operator for continuous block of data?
+    if every element of block of data is equal
     3. What is the purpose of hash function? What are its mathematical properties?
+    encrypting data to fixed length
     4. Describe/justify your implementation.
+    ?
 
 2. Add unit test for operators and hash functions
 
@@ -28,7 +32,8 @@ Make sure that you understand given point before stepping to next one.
     Report content hints:
     
     1. How did you test correctness of operator <, == and hash function?
-    2. Should we initialize tested objects (Small/Medium/Large) with random data? Or should we initialize them manually with known data?   
+    tested all possibilities in case of "<" and "==", checked if hashed data key is the same
+    2. Should we initialize tested objects (Small/Medium/Large) with random data? Or should we initialize them manually with known data?
     
 3. Create benchmarks for operators and hash functions
 

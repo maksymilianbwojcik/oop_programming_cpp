@@ -28,6 +28,8 @@ struct Large {
         for (int i=0;i<SIZE;i++)
         {
             if(data[i]<rhs.data[i]) return true;
+            else if (data[i]==rhs.data[i]) continue;
+            return false;
         }
         return false;
     }

@@ -1,0 +1,2 @@
+/usr/bin/ar qc lib01_cmake_lib.a  
+/usr/bin/ranlib lib01_cmake_lib.a

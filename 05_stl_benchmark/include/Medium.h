@@ -25,10 +25,11 @@ struct Medium {
         // TODO: Implement me!
         for (int i=0;i<SIZE;i++)
         {
-            if(data[i]<rhs.data[i]) continue;
+            if(data[i]<rhs.data[i]) return true;
+            else if (data[i]==rhs.data[i]) continue;
             return false;
         }
-        return true;
+        return false;
     }
 
     bool operator==(const Medium &rhs) const {
@@ -49,10 +50,10 @@ namespace std {
         std::size_t operator()(const Medium &d) const {
 
             // TODO: Implement me!
-            std::size_t sum;
-            for (int i=0;i<d.SIZE;i++)
+            std::size_t sum = std::hash<int>{}(d.data[0]);
+            for (int i=1;i<d.SIZE;i++)
             {
-                sum+= std::hash<int>{}(d.data[i]);
+                sum= std::hash<int>{}(d.data[i]);
             }
             return sum;
         }
