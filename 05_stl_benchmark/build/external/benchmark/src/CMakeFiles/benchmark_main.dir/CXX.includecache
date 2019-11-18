@@ -1,0 +1,40 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../external/benchmark/include/benchmark/benchmark.h
+stdint.h
+-
+algorithm
+-
+cassert
+-
+cstddef
+-
+iosfwd
+-
+map
+-
+set
+-
+string
+-
+vector
+-
+initializer_list
+-
+type_traits
+-
+utility
+-
+intrin.h
+-
+
+/home/m-debian/Documents/Semestr_5/OOP/oop_2019_g2/05_stl_benchmark/external/benchmark/src/benchmark_main.cc
+benchmark/benchmark.h
+/home/m-debian/Documents/Semestr_5/OOP/oop_2019_g2/05_stl_benchmark/external/benchmark/src/benchmark/benchmark.h
+

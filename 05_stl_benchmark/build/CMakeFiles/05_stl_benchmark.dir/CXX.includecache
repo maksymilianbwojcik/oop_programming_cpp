@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/Dummy.h
+
+/home/m-debian/Documents/Semestr_5/OOP/oop_2019_g2/05_stl_benchmark/src/main.cpp
+iostream
+-
+Dummy.h
+/home/m-debian/Documents/Semestr_5/OOP/oop_2019_g2/05_stl_benchmark/src/Dummy.h
+
