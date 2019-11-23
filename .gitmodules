@@ -4,9 +4,3 @@
 [submodule "googletest"]
 	path = googletest
 	url = https://github.com/google/googletest.git
-[submodule "05_stl_benchmark/googletest"]
-	path = 05_stl_benchmark/googletest
-	url = https://github.com/google/googletest.git
-[submodule "05_stl_benchmark/benchmark"]
-	path = 05_stl_benchmark/benchmark
-	url = https://github.com/google/benchmark.git
