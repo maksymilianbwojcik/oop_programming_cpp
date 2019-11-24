@@ -52,10 +52,14 @@ namespace std {
         std::size_t operator()(const Large &d) const {
 
             // TODO: Implement me!
-            std::size_t sum;
+            std::size_t sum=0;
+            std::size_t h1;
+            std::size_t h2;
             for (int i=0;i<d.SIZE;i++)
             {
-                sum+= std::hash<double>{}(d.data[i]);
+                h1 = std::hash <int> {}(i);
+                h2 = std::hash <double> {}(d.data[i]);
+                sum += h1 ^ h2 << 1;
             }
             return sum;
         }

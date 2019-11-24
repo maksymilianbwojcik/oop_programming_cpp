@@ -5,54 +5,36 @@
 
 void LesserThan(State& state) {
 
-    auto N = state.range(0);
     Small a {};
     Small b {};
     for (auto _ : state)
     {
-        for (int i = 0; i < N; ++i)
-        {
-            a<b;
-        }
+        a<b;
     }
-
-    state.SetComplexityN(N);
 }
 
-BENCHMARK(LesserThan)->RangeMultiplier(2)->Range(1, 1024)->Complexity();
+BENCHMARK(LesserThan)->Range(1,1);
 
 void Equal(State& state) {
 
-    auto N = state.range(0);
     Small a {};
     Small b {};
     for (auto _ : state)
     {
-        for (int i = 0; i < N; ++i)
-        {
-            a=b;
-        }
+        a=b;
     }
-
-    state.SetComplexityN(N);
 }
 
-BENCHMARK(Equal)->RangeMultiplier(2)->Range(1, 1024)->Complexity();
+BENCHMARK(Equal)->Range(1,1);
 
 void Hash(State& state) {
 
-    auto N = state.range(0);
     Small a {};
     std::hash<Small> hash;
     for (auto _ : state)
     {
-        for (int i = 0; i < N; ++i)
-        {
-            hash(a);
-        }
+        hash(a);
     }
-
-    state.SetComplexityN(N);
 }
 
-BENCHMARK(Hash)->RangeMultiplier(2)->Range(1, 1024)->Complexity();
+BENCHMARK(Hash)->Range(1,1);

@@ -110,3 +110,42 @@ TEST(LargeTest, Clear) {
 
 
 // TODO: Add tests for your operators implementation!
+
+TEST(LargeTest, IsEqual)
+{
+    Large a{3.2,3};
+    Large b{1,5};
+    Large c{3.2,5};
+    Large d{3.2,3};
+    EXPECT_EQ(a==b, 0);
+    EXPECT_EQ(a==c, 0);
+    EXPECT_EQ(a==d, 1);
+}
+
+TEST(LargeTest, IsLessThan)
+{
+    Large a{3,3};
+    Large b{1,5};
+    Large c{5,5};
+    Large d{3,3};
+    EXPECT_EQ(a<b, 0);
+    EXPECT_EQ(a<c, 1);
+    EXPECT_EQ(a<d, 0);
+}
+
+TEST(LargeTest, IsKeyEqual)
+{
+    Large large{};
+    std::hash<Large> hash;
+    std::size_t key = 0;
+    std::size_t h1;
+    std::size_t h2;
+    for(int i=0; i<large.SIZE;i++)
+    {
+        h1 = std::hash<int>{}(i);
+        h2 = std::hash<double>{}(large.data[i]);
+        key += h1 ^ (h2<<1);
+    }
+
+    EXPECT_EQ(hash(large), key);
+}

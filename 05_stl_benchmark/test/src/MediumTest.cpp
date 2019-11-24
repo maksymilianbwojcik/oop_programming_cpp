@@ -133,11 +133,15 @@ TEST(MediumTest, IsKeyEqual)
 {
     Medium medium{};
     std::hash<Medium> hash;
-    std::size_t secondKey = std::hash<int>{}(medium.data[0]);
-    for(int i=1; i<medium.SIZE;i++)
+    std::size_t key = 0;
+    std::size_t h1;
+    std::size_t h2;
+    for(int i=0; i<medium.SIZE;i++)
     {
-        secondKey &= std::hash<int> {} (medium.data[i]);
+        h1 = std::hash<int>{}(i);
+        h2 = std::hash<int>{}(medium.data[i]);
+        key += h1 ^ (h2<<1);
     }
 
-    EXPECT_EQ(hash(medium), secondKey);
+    EXPECT_EQ(hash(medium), key);
 }

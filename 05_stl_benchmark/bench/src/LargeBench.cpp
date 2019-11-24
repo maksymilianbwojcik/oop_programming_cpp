@@ -2,56 +2,39 @@
 #include "BenchIncludes.h"
 
 // TODO: Add benchmarks for operator<. operator==, and hash
+
 void LesserThanLarge(State& state) {
 
-    auto N = state.range(0);
     Large a {};
     Large b {};
     for (auto _ : state)
     {
-        for (int i = 0; i < N; ++i)
-        {
-            a<b;
-        }
+        a<b;
     }
-
-    state.SetComplexityN(N);
 }
 
-BENCHMARK(LesserThanLarge)->RangeMultiplier(2)->Range(1, 1024)->Complexity();
+BENCHMARK(LesserThanLarge)->Range(1,1);
 
 void EqualLarge(State& state) {
 
-    auto N = state.range(0);
     Large a {};
     Large b {};
     for (auto _ : state)
     {
-        for (int i = 0; i < N; ++i)
-        {
-            a=b;
-        }
+        a=b;
     }
-
-    state.SetComplexityN(N);
 }
 
-BENCHMARK(EqualLarge)->RangeMultiplier(2)->Range(1, 1024)->Complexity();
+BENCHMARK(EqualLarge)->Range(1,1);
 
 void HashLarge(State& state) {
 
-    auto N = state.range(0);
     Large a {};
     std::hash<Large> hash;
     for (auto _ : state)
     {
-        for (int i = 0; i < N; ++i)
-        {
-            hash(a);
-        }
+        hash(a);
     }
-
-    state.SetComplexityN(N);
 }
 
-BENCHMARK(HashLarge)->RangeMultiplier(2)->Range(1, 1024)->Complexity();
+BENCHMARK(HashLarge)->Range(1,1);

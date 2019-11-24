@@ -139,8 +139,8 @@ TEST(SmallTest, IsLessThan)
 TEST(SmallTest, IsHashEqual)
 {
     Small a{'c'};
-    std::size_t hashed1 = std::hash<char>{}(a.data[0]);
-    std::hash <char> fubar;
-    std::size_t hashed2 = fubar(a.data[0]);
+    std::size_t hashed1 = (std::hash<int>{}(0)) ^ ((std::hash<char>{}(a.data[0]))<<1);
+    std::hash <Small> fubar;
+    std::size_t hashed2 = fubar(a);
     EXPECT_EQ(hashed1, hashed2);
 }

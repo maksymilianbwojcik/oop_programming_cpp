@@ -5,6 +5,7 @@
 struct Medium {
 
     constexpr static unsigned SIZE = 256u;
+
     int data[SIZE];
 
     void clear() {
@@ -50,10 +51,14 @@ namespace std {
         std::size_t operator()(const Medium &d) const {
 
             // TODO: Implement me!
-            std::size_t sum = std::hash<int>{}(d.data[0]);
-            for (int i=1;i<d.SIZE;i++)
+            std::size_t sum=0;
+            std::size_t h1;
+            std::size_t h2;
+            for (int i=0;i<d.SIZE;i++)
             {
-                sum= std::hash<int>{}(d.data[i]);
+                h1 = std::hash <int> {}(i);
+                h2 = std::hash <int> {}(d.data[i]);
+                sum += h1 ^ (h2<<1);
             }
             return sum;
         }
