@@ -13,7 +13,7 @@ void LesserThan(State& state) {
     }
 }
 
-BENCHMARK(LesserThan)->Range(1,1);
+BENCHMARK(LesserThan);
 
 void Equal(State& state) {
 
@@ -25,7 +25,7 @@ void Equal(State& state) {
     }
 }
 
-BENCHMARK(Equal)->Range(1,1);
+BENCHMARK(Equal);
 
 void Hash(State& state) {
 
@@ -37,4 +37,4 @@ void Hash(State& state) {
     }
 }
 
-BENCHMARK(Hash)->Range(1,1);
+BENCHMARK(Hash);

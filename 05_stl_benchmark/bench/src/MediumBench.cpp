@@ -13,7 +13,7 @@ void LesserThanMedium(State& state) {
     }
 }
 
-BENCHMARK(LesserThanMedium)->Range(1,1);
+BENCHMARK(LesserThanMedium);
 
 void EqualMedium(State& state) {
 
@@ -25,7 +25,7 @@ void EqualMedium(State& state) {
     }
 }
 
-BENCHMARK(EqualMedium)->Range(1,1);
+BENCHMARK(EqualMedium);
 
 void HashMedium(State& state) {
 
@@ -37,4 +37,4 @@ void HashMedium(State& state) {
     }
 }
 
-BENCHMARK(HashMedium)->Range(1,1);
+BENCHMARK(HashMedium);

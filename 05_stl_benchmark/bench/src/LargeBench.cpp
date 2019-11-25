@@ -13,7 +13,7 @@ void LesserThanLarge(State& state) {
     }
 }
 
-BENCHMARK(LesserThanLarge)->Range(1,1);
+BENCHMARK(LesserThanLarge);
 
 void EqualLarge(State& state) {
 
@@ -25,7 +25,7 @@ void EqualLarge(State& state) {
     }
 }
 
-BENCHMARK(EqualLarge)->Range(1,1);
+BENCHMARK(EqualLarge);
 
 void HashLarge(State& state) {
 
@@ -37,4 +37,4 @@ void HashLarge(State& state) {
     }
 }
 
-BENCHMARK(HashLarge)->Range(1,1);
+BENCHMARK(HashLarge);
