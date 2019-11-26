@@ -234,7 +234,7 @@ static void SmallMapFind(State& state)
 
     for(auto _: state)
     {
-        m.find(a[5]);
+        m.find(a[rand()%N]);
     }
     state.SetComplexityN(N);
 }
@@ -255,7 +255,7 @@ static void SmallMapEqualrange(State& state)
 
     for(auto _: state)
     {
-        m.equal_range(b[5]);
+        m.equal_range(b[rand()%N]);
     }
     state.SetComplexityN(N);
 }
@@ -276,7 +276,7 @@ static void SmallMapLowerbound(State& state)
 
     for(auto _: state)
     {
-        m.lower_bound(a[5]);
+        m.lower_bound(a[rand()%N]);
     }
     state.SetComplexityN(N);
 }
@@ -297,7 +297,7 @@ static void SmallMapUpperbound(State& state)
 
     for(auto _: state)
     {
-        m.upper_bound(a[0]);
+        m.upper_bound(a[rand()%N]);
     }
     state.SetComplexityN(N);
 }

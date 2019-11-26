@@ -150,7 +150,7 @@ static void UnorderedMultisetCount(State& state)
     }
     for(auto _: state)
     {
-        test.count(a[0]);
+        test.count(a[rand()%N]);
     }
     state.SetComplexityN(N);
 }
@@ -168,7 +168,7 @@ static void UnorderedMultisetFind(State& state)
     }
     for(auto _: state)
     {
-        test.find(a[0]);
+        test.find(a[rand()%N]);
     }
     state.SetComplexityN(N);
 }
@@ -186,7 +186,7 @@ static void UnorderedMultisetEqualrange(State& state)
     }
     for(auto _: state)
     {
-        test.equal_range(a[0]);
+        test.equal_range(a[rand()%N]);
     }
     state.SetComplexityN(N);
 }
