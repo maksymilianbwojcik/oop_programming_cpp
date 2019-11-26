@@ -6,16 +6,10 @@
 void VectorAt(State& state) {
 
     auto N = state.range(0);
-    std::vector<Small> test;
-    Small a[N];
-    for (int i = 0; i < N; ++i)
-    {
-        a[i].data[0] = rand();
-        test.insert(test.begin(), a[i]);
-    }
+    std::vector<Small> test (N);
     for (auto _ : state)
     {
-        test.at(0);
+        test.at(rand()%N);
     }
 
     state.SetComplexityN(N);
@@ -26,16 +20,10 @@ BENCHMARK(VectorAt)->RangeMultiplier(2)->Range(1, 256)->Complexity();
 void VectorOperator(State& state) {
 
     auto N = state.range(0);
-    std::vector<Small> test;
-    Small a[N];
-    for (int i = 0; i < N; ++i)
-    {
-        a[i].data[0] = rand();
-        test.insert(test.begin(), a[i]);
-    }
+    std::vector<Small> test(N);
     for (auto _ : state)
     {
-        test[0];
+        test[rand()%N];
     }
 
     state.SetComplexityN(N);
@@ -46,13 +34,7 @@ BENCHMARK(VectorOperator)->RangeMultiplier(2)->Range(1, 256)->Complexity();
 void VectorFront(State& state) {
 
     auto N = state.range(0);
-    std::vector<Small> test {};
-    Small a[N];
-    for (int i = 0; i < N; ++i)
-    {
-        a[i].data[0] = rand();
-        test.push_back(a[i]);
-    }
+    std::vector<Small> test(N);
     for (auto _ : state)
     {
         test.front();
@@ -66,13 +48,7 @@ BENCHMARK(VectorFront)->RangeMultiplier(2)->Range(1, 256)->Complexity();
 void VectorBack(State& state) {
 
     auto N = state.range(0);
-    std::vector<Small> test {};
-    Small a[N];
-    for (int i = 0; i < N; ++i)
-    {
-        a[i].data[0] = rand();
-        test.push_back(a[i]);
-    }
+    std::vector<Small> test (N);
     for (auto _ : state)
     {
         test.back();
@@ -86,13 +62,9 @@ BENCHMARK(VectorBack)->RangeMultiplier(2)->Range(1, 256)->Complexity();
 void VectorData(State& state) {
 
     auto N = state.range(0);
-    std::vector<Small> test {};
-    Small a[N];
-    for (int i = 0; i < N; ++i)
-    {
-        a[i].data[0] = rand();
-        test.push_back(a[i]);
-    }
+    std::vector<Small> test (N);
+    Small a {};
+    test[rand()%N] = a;
     for (auto _ : state)
     {
         test.data();
@@ -267,7 +239,7 @@ void VectorPushBack(State& state) {
 
     auto N = state.range(0);
     Small a{};
-    std::vector<Small> test = {};
+    std::vector<Small> test (N);
 
     for(auto _ : state)
     {
@@ -309,7 +281,7 @@ void VectorResize(State& state) {
         std::vector<Small>test(N);
         state.ResumeTiming();
 
-        test.resize(1);
+        test.resize(rand()%N);
     }
     state.SetComplexityN(N);
 }
