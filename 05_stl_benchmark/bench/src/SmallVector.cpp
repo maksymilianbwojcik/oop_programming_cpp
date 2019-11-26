@@ -258,7 +258,7 @@ void VectorPopBack(State& state) {
 
     auto N = state.range(0);
     Small a{};
-    std::vector<Small> test = {};
+    std::vector<Small> test (N);
 
     for(auto _ : state)
     {
