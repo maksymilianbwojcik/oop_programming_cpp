@@ -1,13 +1,13 @@
-#include "Small.h"
+#include "Medium.h"
 #include "BenchIncludes.h"
 #include <map>
 
-static void SmallMapAt(State& state)
+static void MediumMapAt(State& state)
 {
     auto N = state.range(0);
-    std::map <Small, Small> m{};
-    Small a[N];
-    Small b[N];
+    std::map <Medium, Medium> m{};
+    Medium a[N];
+    Medium b[N];
     for(int i=0; i<N; i++)
     {
         a[i].data[0] = rand();
@@ -17,20 +17,19 @@ static void SmallMapAt(State& state)
 
     for(auto _: state)
     {
-
-        DoNotOptimize(m.at(a[0]));
+        m.at(a[0]);
     }
     state.SetComplexityN(N);
 }
-BENCHMARK(SmallMapAt)->RangeMultiplier(2)->Range(1, 1024)->Complexity();
+BENCHMARK(MediumMapAt)->RangeMultiplier(2)->Range(1, 1024)->Complexity();
 
 
-static void SmallMapOperator(State& state)
+static void MediumMapOperator(State& state)
 {
     auto N = state.range(0);
-    std::map <Small, Small> m{};
-    Small a[N];
-    Small b[N];
+    std::map <Medium, Medium> m{};
+    Medium a[N];
+    Medium b[N];
     for(int i=0; i<N; i++)
     {
         a[i].data[0] = rand();
@@ -40,18 +39,18 @@ static void SmallMapOperator(State& state)
 
     for(auto _: state)
     {
-        DoNotOptimize(m[a[0]]);
+        m[a[0]];
     }
     state.SetComplexityN(N);
 }
-BENCHMARK(SmallMapOperator)->RangeMultiplier(2)->Range(1, 1024)->Complexity();
+BENCHMARK(MediumMapOperator)->RangeMultiplier(2)->Range(1, 1024)->Complexity();
 
-static void SmallMapEmpty(State& state)
+static void MediumMapEmpty(State& state)
 {
     auto N = state.range(0);
-    std::map <Small, Small> m{};
-    Small a[N];
-    Small b[N];
+    std::map <Medium, Medium> m{};
+    Medium a[N];
+    Medium b[N];
     for(int i=0; i<N; i++)
     {
         a[i].data[0] = rand();
@@ -61,18 +60,18 @@ static void SmallMapEmpty(State& state)
 
     for(auto _: state)
     {
-        DoNotOptimize(m.empty());
+        m.empty();
     }
     state.SetComplexityN(N);
 }
-BENCHMARK(SmallMapEmpty)->RangeMultiplier(2)->Range(1, 1024)->Complexity();
+BENCHMARK(MediumMapEmpty)->RangeMultiplier(2)->Range(1, 1024)->Complexity();
 
-static void SmallMapSize(State& state)
+static void MediumMapSize(State& state)
 {
     auto N = state.range(0);
-    std::map <Small, Small> m;
-    Small a[N];
-    Small b[N];
+    std::map <Medium, Medium> m;
+    Medium a[N];
+    Medium b[N];
     for(int i=0; i<N; i++)
     {
         a[i].data[0] = rand();
@@ -82,18 +81,18 @@ static void SmallMapSize(State& state)
 
     for(auto _: state)
     {
-        DoNotOptimize(m.size());
+        m.size();
     }
     state.SetComplexityN(N);
 }
-BENCHMARK(SmallMapSize)->RangeMultiplier(2)->Range(1, 1024)->Complexity();
+BENCHMARK(MediumMapSize)->RangeMultiplier(2)->Range(1, 1024)->Complexity();
 
-static void SmallMapMaxsize(State& state)
+static void MediumMapMaxsize(State& state)
 {
     auto N = state.range(0);
-    std::map <Small, Small> m;
-    Small a[N];
-    Small b[N];
+    std::map <Medium, Medium> m;
+    Medium a[N];
+    Medium b[N];
     for(int i=0; i<N; i++)
     {
         a[i].data[0] = rand();
@@ -103,18 +102,18 @@ static void SmallMapMaxsize(State& state)
 
     for(auto _: state)
     {
-        DoNotOptimize(m.max_size());
+        m.max_size();
     }
     state.SetComplexityN(N);
 }
-BENCHMARK(SmallMapMaxsize)->RangeMultiplier(2)->Range(1, 1024)->Complexity();
+BENCHMARK(MediumMapMaxsize)->RangeMultiplier(2)->Range(1, 1024)->Complexity();
 
-static void SmallMapClear(State& state)
+static void MediumMapClear(State& state)
 {
     auto N = state.range(0);
-    std::map <Small, Small> m;
-    Small a[N];
-    Small b[N];
+    std::map <Medium, Medium> m;
+    Medium a[N];
+    Medium b[N];
 
     for(auto _: state)
     {
@@ -127,28 +126,24 @@ static void SmallMapClear(State& state)
         }
         state.ResumeTiming();
 
-        DoNotOptimize(m);
         m.clear();
-        ClobberMemory();
     }
     state.SetComplexityN(N);
 }
-BENCHMARK(SmallMapClear)->RangeMultiplier(2)->Range(1, 1024)->Complexity();
+BENCHMARK(MediumMapClear)->RangeMultiplier(2)->Range(1, 1024)->Complexity();
 
-static void SmallMapInsert(State& state)
+static void MediumMapInsert(State& state)
 {
     auto N = state.range(0);
-    std::map <Small, Small> m;
-    Small a{};
-    Small b{};
+    std::map <Medium, Medium> m;
+    Medium a{};
+    Medium b{};
     a.data[0] = rand();
     b.data[0] = rand();
 
     for(auto _: state)
     {
-        DoNotOptimize(m);
         m.insert({a,b});
-        ClobberMemory();
 
         state.PauseTiming();
         m.erase(a);
@@ -157,14 +152,14 @@ static void SmallMapInsert(State& state)
     }
     state.SetComplexityN(N);
 }
-BENCHMARK(SmallMapInsert)->RangeMultiplier(2)->Range(1, 1024)->Complexity();
+BENCHMARK(MediumMapInsert)->RangeMultiplier(2)->Range(1, 1024)->Complexity();
 
-static void SmallMapErase(State& state)
+static void MediumMapErase(State& state)
 {
     auto N = state.range(0);
-    std::map <Small, Small> m;
-    Small a{};
-    Small b{};
+    std::map <Medium, Medium> m;
+    Medium a{};
+    Medium b{};
     a.data[0] = rand();
     b.data[0] = rand();
 
@@ -174,21 +169,19 @@ static void SmallMapErase(State& state)
         m.insert({a,b});
         state.ResumeTiming();
 
-        DoNotOptimize(m);
         m.erase(a);
-        ClobberMemory();
     }
     state.SetComplexityN(N);
 }
-BENCHMARK(SmallMapErase)->RangeMultiplier(2)->Range(1, 1024)->Complexity();
+BENCHMARK(MediumMapErase)->RangeMultiplier(2)->Range(1, 1024)->Complexity();
 
-static void SmallMapSwap(State& state)
+static void MediumMapSwap(State& state)
 {
     auto N = state.range(0);
-    std::map <Small, Small> m;
-    std::map <Small, Small> m2;
-    Small a[N];
-    Small b[N];
+    std::map <Medium, Medium> m;
+    std::map <Medium, Medium> m2;
+    Medium a[N];
+    Medium b[N];
     for(int i=0; i<N; i++)
     {
         a[i].data[0] = rand();
@@ -199,20 +192,18 @@ static void SmallMapSwap(State& state)
 
     for(auto _: state)
     {
-        DoNotOptimize(m);
         m.swap(m2);
-        ClobberMemory();
     }
     state.SetComplexityN(N);
 }
-BENCHMARK(SmallMapSwap)->RangeMultiplier(2)->Range(1, 1024)->Complexity();
+BENCHMARK(MediumMapSwap)->RangeMultiplier(2)->Range(1, 1024)->Complexity();
 
-static void SmallMapCount(State& state)
+static void MediumMapCount(State& state)
 {
     auto N = state.range(0);
-    std::map <Small, Small> m{};
-    Small a[N];
-    Small b[N];
+    std::map <Medium, Medium> m{};
+    Medium a[N];
+    Medium b[N];
     for(int i=0; i<N; i++)
     {
         a[i].data[0] = rand();
@@ -222,18 +213,18 @@ static void SmallMapCount(State& state)
 
     for(auto _: state)
     {
-        DoNotOptimize(m.count(a[0]));
+        m.count(a[0]);
     }
     state.SetComplexityN(N);
 }
-BENCHMARK(SmallMapCount)->RangeMultiplier(2)->Range(1, 1024)->Complexity();
+BENCHMARK(MediumMapCount)->RangeMultiplier(2)->Range(1, 1024)->Complexity();
 
-static void SmallMapFind(State& state)
+static void MediumMapFind(State& state)
 {
     auto N = state.range(0);
-    std::map <Small, Small> m{};
-    Small a[N];
-    Small b[N];
+    std::map <Medium, Medium> m{};
+    Medium a[N];
+    Medium b[N];
     for(int i=0; i<N; i++)
     {
         a[i].data[0] = rand();
@@ -243,18 +234,18 @@ static void SmallMapFind(State& state)
 
     for(auto _: state)
     {
-        DoNotOptimize(m.find(a[rand()%N]));
+        m.find(a[rand()%N]);
     }
     state.SetComplexityN(N);
 }
-BENCHMARK(SmallMapFind)->RangeMultiplier(2)->Range(1, 1024)->Complexity();
+BENCHMARK(MediumMapFind)->RangeMultiplier(2)->Range(1, 1024)->Complexity();
 
-static void SmallMapEqualrange(State& state)
+static void MediumMapEqualrange(State& state)
 {
     auto N = state.range(0);
-    std::map <Small, Small> m{};
-    Small a[N];
-    Small b[N];
+    std::map <Medium, Medium> m{};
+    Medium a[N];
+    Medium b[N];
     for(int i=0; i<N; i++)
     {
         a[i].data[0] = rand();
@@ -264,18 +255,18 @@ static void SmallMapEqualrange(State& state)
 
     for(auto _: state)
     {
-        DoNotOptimize(m.equal_range(b[rand()%N]));
+        m.equal_range(b[rand()%N]);
     }
     state.SetComplexityN(N);
 }
-BENCHMARK(SmallMapEqualrange)->RangeMultiplier(2)->Range(1, 1024)->Complexity();
+BENCHMARK(MediumMapEqualrange)->RangeMultiplier(2)->Range(1, 1024)->Complexity();
 
-static void SmallMapLowerbound(State& state)
+static void MediumMapLowerbound(State& state)
 {
     auto N = state.range(0);
-    std::map <Small, Small> m{};
-    Small a[N];
-    Small b[N];
+    std::map <Medium, Medium> m{};
+    Medium a[N];
+    Medium b[N];
     for(int i=0; i<N; i++)
     {
         a[i].data[0] = rand();
@@ -285,18 +276,18 @@ static void SmallMapLowerbound(State& state)
 
     for(auto _: state)
     {
-        DoNotOptimize(m.lower_bound(a[rand()%N]));
+        m.lower_bound(a[rand()%N]);
     }
     state.SetComplexityN(N);
 }
-BENCHMARK(SmallMapLowerbound)->RangeMultiplier(2)->Range(1, 1024)->Complexity();
+BENCHMARK(MediumMapLowerbound)->RangeMultiplier(2)->Range(1, 1024)->Complexity();
 
-static void SmallMapUpperbound(State& state)
+static void MediumMapUpperbound(State& state)
 {
     auto N = state.range(0);
-    std::map <Small, Small> m{};
-    Small a[N];
-    Small b[N];
+    std::map <Medium, Medium> m{};
+    Medium a[N];
+    Medium b[N];
     for(int i=0; i<N; i++)
     {
         a[i].data[0] = rand();
@@ -306,8 +297,8 @@ static void SmallMapUpperbound(State& state)
 
     for(auto _: state)
     {
-        DoNotOptimize(m.upper_bound(a[rand()%N]));
+        m.upper_bound(a[rand()%N]);
     }
     state.SetComplexityN(N);
 }
-BENCHMARK(SmallMapUpperbound)->RangeMultiplier(2)->Range(1, 1024)->Complexity();
+BENCHMARK(MediumMapUpperbound)->RangeMultiplier(2)->Range(1, 1024)->Complexity();

@@ -11,7 +11,7 @@ void pauseAndResume(State& state) {
 }
 
 // On my machine it takes ~330ns
-BENCHMARK(pauseAndResume);
+BENCHMARK(pauseAndResume)->Range(1,1);
 
 
 void somethingInPauseAndResume(State& state) {

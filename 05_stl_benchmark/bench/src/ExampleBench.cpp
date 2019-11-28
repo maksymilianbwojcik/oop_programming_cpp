@@ -35,7 +35,6 @@ void vectorSize(State& state) {
     std::vector<float> vector(size);
 
     for (auto _ : state) {
-
         // Only for Release mode - prevent optimization that will remove function call
         // We can always do that when we have object or method that returns something
         DoNotOptimize(vector.size());

@@ -1,8 +1,8 @@
 {
   "context": {
-    "date": "2019-11-28 22:21:31",
+    "date": "2019-11-28 23:26:31",
     "host_name": "M-debian",
-    "executable": "./cmake-build-debug/bench/05_stl_benchmark_bench",
+    "executable": "./cmake-build-release/bench/05_stl_benchmark_bench",
     "num_cpus": 8,
     "mhz_per_cpu": 3500,
     "cpu_scaling_enabled": true,
@@ -32,19 +32,31 @@
         "num_sharing": 8
       }
     ],
-    "load_avg": [0.42,0.77,0.94],
-    "library_build_type": "debug"
+    "load_avg": [0.66,0.72,0.89],
+    "library_build_type": "release"
   },
   "benchmarks": [
     {
-      "name": "VectorAt/1",
-      "run_name": "VectorAt/1",
+      "name": "LargeMapAt/1",
+      "run_name": "LargeMapAt/1",
       "run_type": "iteration",
       "repetitions": 0,
       "repetition_index": 0,
       "threads": 1,
-      "iterations": 30506131,
-      "real_time": 2.2913625985541476e+01,
-      "cpu_time": 2.2913729931861894e+01,
+      "iterations": 2034,
+      "real_time": 3.3127512635282602e+05,
+      "cpu_time": 3.3119959390363813e+05,
+      "time_unit": "ns"
+    },
+    {
+      "name": "LargeMapAt/2",
+      "run_name": "LargeMapAt/2",
+      "run_type": "iteration",
+      "repetitions": 0,
+      "repetition_index": 0,
+      "threads": 1,
+      "iterations": 2308,
+      "real_time": 3.1078766464366770e+05,
+      "cpu_time": 3.1077130545927206e+05,
       "time_unit": "ns"
     }

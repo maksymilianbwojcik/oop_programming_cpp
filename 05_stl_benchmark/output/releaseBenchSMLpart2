@@ -1,0 +1,131 @@
+{
+  "context": {
+    "date": "2019-11-28 23:24:56",
+    "host_name": "M-debian",
+    "executable": "./cmake-build-release/bench/05_stl_benchmark_bench",
+    "num_cpus": 8,
+    "mhz_per_cpu": 3500,
+    "cpu_scaling_enabled": true,
+    "caches": [
+      {
+        "type": "Data",
+        "level": 1,
+        "size": 32000,
+        "num_sharing": 2
+      },
+      {
+        "type": "Instruction",
+        "level": 1,
+        "size": 32000,
+        "num_sharing": 2
+      },
+      {
+        "type": "Unified",
+        "level": 2,
+        "size": 256000,
+        "num_sharing": 2
+      },
+      {
+        "type": "Unified",
+        "level": 3,
+        "size": 6144000,
+        "num_sharing": 8
+      }
+    ],
+    "load_avg": [0.89,0.77,0.92],
+    "library_build_type": "release"
+  },
+  "benchmarks": [
+    {
+      "name": "LargeVectorInsert/1",
+      "run_name": "LargeVectorInsert/1",
+      "run_type": "iteration",
+      "repetitions": 0,
+      "repetition_index": 0,
+      "threads": 1,
+      "iterations": 19752,
+      "real_time": 3.5523576346660258e+04,
+      "cpu_time": 3.5518125810044556e+04,
+      "time_unit": "ns"
+    },
+    {
+      "name": "LargeVectorInsert/2",
+      "run_name": "LargeVectorInsert/2",
+      "run_type": "iteration",
+      "repetitions": 0,
+      "repetition_index": 0,
+      "threads": 1,
+      "iterations": 19886,
+      "real_time": 3.5379544101408093e+04,
+      "cpu_time": 3.5372437342854282e+04,
+      "time_unit": "ns"
+    },
+    {
+      "name": "LargeVectorInsert/4",
+      "run_name": "LargeVectorInsert/4",
+      "run_type": "iteration",
+      "repetitions": 0,
+      "repetition_index": 0,
+      "threads": 1,
+      "iterations": 19962,
+      "real_time": 3.5412340897627517e+04,
+      "cpu_time": 3.5408951858531203e+04,
+      "time_unit": "ns"
+    },
+    {
+      "name": "LargeVectorInsert/8",
+      "run_name": "LargeVectorInsert/8",
+      "run_type": "iteration",
+      "repetitions": 0,
+      "repetition_index": 0,
+      "threads": 1,
+      "iterations": 19492,
+      "real_time": 3.5574526626471357e+04,
+      "cpu_time": 3.5552493689718867e+04,
+      "time_unit": "ns"
+    },
+    {
+      "name": "LargeVectorInsert/16",
+      "run_name": "LargeVectorInsert/16",
+      "run_type": "iteration",
+      "repetitions": 0,
+      "repetition_index": 0,
+      "threads": 1,
+      "iterations": 19898,
+      "real_time": 3.5555901497515275e+04,
+      "cpu_time": 3.5549501708714430e+04,
+      "time_unit": "ns"
+    },
+    {
+      "name": "LargeVectorInsert/32",
+      "run_name": "LargeVectorInsert/32",
+      "run_type": "iteration",
+      "repetitions": 0,
+      "repetition_index": 0,
+      "threads": 1,
+      "iterations": 19679,
+      "real_time": 3.6122621322303930e+04,
+      "cpu_time": 3.6114195131866436e+04,
+      "time_unit": "ns"
+    },
+    {
+      "name": "LargeVectorInsert_BigO",
+      "run_name": "LargeVectorInsert",
+      "run_type": "aggregate",
+      "repetitions": 0,
+      "threads": 1,
+      "aggregate_name": "BigO",
+      "cpu_coefficient": 3.5585950923621625e+04,
+      "real_coefficient": 3.5594751798664409e+04,
+      "big_o": "(1)",
+      "time_unit": "ns"
+    },
+    {
+      "name": "LargeVectorInsert_RMS",
+      "run_name": "LargeVectorInsert",
+      "run_type": "aggregate",
+      "repetitions": 0,
+      "threads": 1,
+      "aggregate_name": "RMS",
+      "rms": 6.9119916247851092e-03
+    }

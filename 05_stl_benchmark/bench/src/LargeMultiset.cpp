@@ -1,12 +1,12 @@
-#include "Small.h"
+#include "Large.h"
 #include "BenchIncludes.h"
 #include <unordered_set>
 
-static void UnorderedMultisetEmpty(State& state)
+static void LargeUnorderedMultisetEmpty(State& state)
 {
     auto N = state.range(0);
-    std::unordered_multiset<Small> test;
-    Small a[N];
+    std::unordered_multiset<Large> test;
+    Large a[N];
     for(int i=0; i<N; i++)
     {
         a[i].data[0] = rand();
@@ -20,13 +20,13 @@ static void UnorderedMultisetEmpty(State& state)
     }
     state.SetComplexityN(N);
 }
-BENCHMARK(UnorderedMultisetEmpty)->RangeMultiplier(2)->Range(1, 1024)->Complexity();
+BENCHMARK(LargeUnorderedMultisetEmpty)->RangeMultiplier(2)->Range(1, 32)->Complexity();
 
-static void UnorderedMultisetSize(State& state)
+static void LargeUnorderedMultisetSize(State& state)
 {
     auto N = state.range(0);
-    std::unordered_multiset<Small> test;
-    Small a[N];
+    std::unordered_multiset<Large> test;
+    Large a[N];
     for(int i=0; i<N; i++)
     {
         a[i].data[0] = rand();
@@ -38,13 +38,13 @@ static void UnorderedMultisetSize(State& state)
     }
     state.SetComplexityN(N);
 }
-BENCHMARK(UnorderedMultisetSize)->RangeMultiplier(2)->Range(1, 1024)->Complexity();
+BENCHMARK(LargeUnorderedMultisetSize)->RangeMultiplier(2)->Range(1, 32)->Complexity();
 
-static void UnorderedMultisetMaxsize(State& state)
+static void LargeUnorderedMultisetMaxsize(State& state)
 {
     auto N = state.range(0);
-    std::unordered_multiset<Small> test;
-    Small a[N];
+    std::unordered_multiset<Large> test;
+    Large a[N];
     for(int i=0; i<N; i++)
     {
         a[i].data[0] = rand();
@@ -56,23 +56,23 @@ static void UnorderedMultisetMaxsize(State& state)
     }
     state.SetComplexityN(N);
 }
-BENCHMARK(UnorderedMultisetMaxsize)->RangeMultiplier(2)->Range(1, 1024)->Complexity();
+BENCHMARK(LargeUnorderedMultisetMaxsize)->RangeMultiplier(2)->Range(1, 32)->Complexity();
 
-static void UnorderedMultisetClear(State& state)
+static void LargeUnorderedMultisetClear(State& state)
 {
     auto N = state.range(0);
-    std::unordered_multiset<Small> test;
-    Small a[N];
+    std::unordered_multiset<Large> test;
+    Large a[N];
 
     for(auto _: state)
     {
-        state.PauseTiming();
+
         for(int i=0; i<N; i++)
         {
             a[i].data[0] = rand();
             test.insert(a[i]);
         }
-        state.ResumeTiming();
+
 
         DoNotOptimize(test);
 
@@ -81,13 +81,13 @@ static void UnorderedMultisetClear(State& state)
     }
     state.SetComplexityN(N);
 }
-BENCHMARK(UnorderedMultisetClear)->RangeMultiplier(2)->Range(1, 1024)->Complexity();
+BENCHMARK(LargeUnorderedMultisetClear)->RangeMultiplier(2)->Range(1, 32)->Complexity();
 
-static void UnorderedMultisetInsert(State& state)
+static void LargeUnorderedMultisetInsert(State& state)
 {
     auto N = state.range(0);
-    std::unordered_multiset<Small> test;
-    Small a{};
+    std::unordered_multiset<Large> test;
+    Large a{};
     a.data[0] = rand();
 
     for(auto _: state)
@@ -95,26 +95,26 @@ static void UnorderedMultisetInsert(State& state)
         DoNotOptimize(test);
         test.insert(a);
         ClobberMemory();
-        state.PauseTiming();
+
         test.erase(a);
-        state.ResumeTiming();
+
     }
     state.SetComplexityN(N);
 }
-BENCHMARK(UnorderedMultisetInsert)->RangeMultiplier(2)->Range(1, 1024)->Complexity();
+BENCHMARK(LargeUnorderedMultisetInsert)->RangeMultiplier(2)->Range(1, 32)->Complexity();
 
-static void UnorderedMultisetErase(State& state)
+static void LargeUnorderedMultisetErase(State& state)
 {
     auto N = state.range(0);
-    std::unordered_multiset<Small> test;
-    Small a{};
+    std::unordered_multiset<Large> test;
+    Large a{};
     a.data[0] = rand();
 
     for(auto _: state)
     {
-        state.PauseTiming();
+
         test.insert(a);
-        state.ResumeTiming();
+
         DoNotOptimize(test);
 
         test.erase(a);
@@ -122,15 +122,15 @@ static void UnorderedMultisetErase(State& state)
     }
     state.SetComplexityN(N);
 }
-BENCHMARK(UnorderedMultisetErase)->RangeMultiplier(2)->Range(1, 1024)->Complexity();
+BENCHMARK(LargeUnorderedMultisetErase)->RangeMultiplier(2)->Range(1, 32)->Complexity();
 
-static void UnorderedMultisetSwap(State& state)
+static void LargeUnorderedMultisetSwap(State& state)
 {
     auto N = state.range(0);
-    std::unordered_multiset<Small> test;
-    std::unordered_multiset<Small> w;
-    Small a[N];
-    Small b[N];
+    std::unordered_multiset<Large> test;
+    std::unordered_multiset<Large> w;
+    Large a[N];
+    Large b[N];
     for(int i=0; i<N; i++)
     {
         a[i].data[0] = rand();
@@ -146,13 +146,13 @@ static void UnorderedMultisetSwap(State& state)
     }
     state.SetComplexityN(N);
 }
-BENCHMARK(UnorderedMultisetSwap)->RangeMultiplier(2)->Range(1, 1024)->Complexity();
+BENCHMARK(LargeUnorderedMultisetSwap)->RangeMultiplier(2)->Range(1, 32)->Complexity();
 
-static void UnorderedMultisetCount(State& state)
+static void LargeUnorderedMultisetCount(State& state)
 {
     auto N = state.range(0);
-    std::unordered_multiset<Small> test;
-    Small a[N];
+    std::unordered_multiset<Large> test;
+    Large a[N];
     for(int i=0; i<N; i++)
     {
         a[i].data[0] = rand();
@@ -164,13 +164,13 @@ static void UnorderedMultisetCount(State& state)
     }
     state.SetComplexityN(N);
 }
-BENCHMARK(UnorderedMultisetCount)->RangeMultiplier(2)->Range(1, 1024)->Complexity();
+BENCHMARK(LargeUnorderedMultisetCount)->RangeMultiplier(2)->Range(1, 32)->Complexity();
 
-static void UnorderedMultisetFind(State& state)
+static void LargeUnorderedMultisetFind(State& state)
 {
     auto N = state.range(0);
-    std::unordered_multiset<Small> test;
-    Small a[N];
+    std::unordered_multiset<Large> test;
+    Large a[N];
     for(int i=0; i<N; i++)
     {
         a[i].data[0] = rand();
@@ -182,13 +182,13 @@ static void UnorderedMultisetFind(State& state)
     }
     state.SetComplexityN(N);
 }
-BENCHMARK(UnorderedMultisetFind)->RangeMultiplier(2)->Range(1, 1024)->Complexity();
+BENCHMARK(LargeUnorderedMultisetFind)->RangeMultiplier(2)->Range(1, 32)->Complexity();
 
-static void UnorderedMultisetEqualrange(State& state)
+static void LargeUnorderedMultisetEqualrange(State& state)
 {
     auto N = state.range(0);
-    std::unordered_multiset<Small> test;
-    Small a[N];
+    std::unordered_multiset<Large> test;
+    Large a[N];
     for(int i=0; i<N; i++)
     {
         a[i].data[0] = rand();
@@ -200,13 +200,13 @@ static void UnorderedMultisetEqualrange(State& state)
     }
     state.SetComplexityN(N);
 }
-BENCHMARK(UnorderedMultisetEqualrange)->RangeMultiplier(2)->Range(1, 1024)->Complexity();
+BENCHMARK(LargeUnorderedMultisetEqualrange)->RangeMultiplier(2)->Range(1, 32)->Complexity();
 
-static void UnorderedMultisetRehash(State& state)
+static void LargeUnorderedMultisetRehash(State& state)
 {
     auto N = state.range(0);
-    std::unordered_multiset<Small> test;
-    Small a[N];
+    std::unordered_multiset<Large> test;
+    Large a[N];
     for(int i=0; i<N; i++)
     {
         a[i].data[0] = rand();
@@ -214,22 +214,22 @@ static void UnorderedMultisetRehash(State& state)
     }
     for(auto _: state)
     {
-        state.PauseTiming();
+
         int num = rand()%10;
-        state.ResumeTiming();
+
         DoNotOptimize(test);
         test.rehash(num);
         ClobberMemory();
     }
     state.SetComplexityN(N);
 }
-BENCHMARK(UnorderedMultisetRehash)->RangeMultiplier(2)->Range(1, 1024)->Complexity();
+BENCHMARK(LargeUnorderedMultisetRehash)->RangeMultiplier(2)->Range(1, 32)->Complexity();
 
-static void UnorderedMultisetReserve(State& state)
+static void LargeUnorderedMultisetReserve(State& state)
 {
     auto N = state.range(0);
-    std::unordered_multiset<Small> test;
-    Small a[N];
+    std::unordered_multiset<Large> test;
+    Large a[N];
     for(int i=0; i<N; i++)
     {
         a[i].data[0] = rand();
@@ -237,13 +237,13 @@ static void UnorderedMultisetReserve(State& state)
     }
     for(auto _: state)
     {
-        state.PauseTiming();
+
         int num = rand()%10;
-        state.ResumeTiming();
+
         DoNotOptimize(test);
         test.reserve(num);
         ClobberMemory();
     }
     state.SetComplexityN(N);
 }
-BENCHMARK(UnorderedMultisetReserve)->RangeMultiplier(2)->Range(1, 1024)->Complexity();
+BENCHMARK(LargeUnorderedMultisetReserve)->RangeMultiplier(2)->Range(1, 32)->Complexity();

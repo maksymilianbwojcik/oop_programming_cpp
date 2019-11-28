@@ -1,12 +1,12 @@
 #include "BenchIncludes.h"
 #include <vector>
-#include <Small.h>
+#include <Medium.h>
 #include <random>
 
-void VectorAt(State& state) {
+void MediumVectorAt(State& state) {
 
     auto N = state.range(0);
-    std::vector<Small> test (N);
+    std::vector<Medium> test (N);
     for (auto _ : state)
     {
         DoNotOptimize(test.at(rand()%N));
@@ -15,12 +15,12 @@ void VectorAt(State& state) {
     state.SetComplexityN(N);
 }
 
-BENCHMARK(VectorAt)->RangeMultiplier(2)->Range(1, 256)->Complexity();
+BENCHMARK(MediumVectorAt)->RangeMultiplier(2)->Range(1, 256)->Complexity();
 
-void VectorOperator(State& state) {
+void MediumVectorOperator(State& state) {
 
     auto N = state.range(0);
-    std::vector<Small> test(N);
+    std::vector<Medium> test(N);
     for (auto _ : state)
     {
         DoNotOptimize(test[rand()%N]);
@@ -29,12 +29,12 @@ void VectorOperator(State& state) {
     state.SetComplexityN(N);
 }
 
-BENCHMARK(VectorOperator)->RangeMultiplier(2)->Range(1, 256)->Complexity();
+BENCHMARK(MediumVectorOperator)->RangeMultiplier(2)->Range(1, 256)->Complexity();
 
-void VectorFront(State& state) {
+void MediumVectorFront(State& state) {
 
     auto N = state.range(0);
-    std::vector<Small> test(N);
+    std::vector<Medium> test(N);
     for (auto _ : state)
     {
         DoNotOptimize(test.front());
@@ -43,12 +43,12 @@ void VectorFront(State& state) {
     state.SetComplexityN(N);
 }
 
-BENCHMARK(VectorFront)->RangeMultiplier(2)->Range(1, 256)->Complexity();
+BENCHMARK(MediumVectorFront)->RangeMultiplier(2)->Range(1, 256)->Complexity();
 
-void VectorBack(State& state) {
+void MediumVectorBack(State& state) {
 
     auto N = state.range(0);
-    std::vector<Small> test (N);
+    std::vector<Medium> test (N);
     for (auto _ : state)
     {
         DoNotOptimize(test.back());
@@ -57,13 +57,13 @@ void VectorBack(State& state) {
     state.SetComplexityN(N);
 }
 
-BENCHMARK(VectorBack)->RangeMultiplier(2)->Range(1, 256)->Complexity();
+BENCHMARK(MediumVectorBack)->RangeMultiplier(2)->Range(1, 256)->Complexity();
 
-void VectorData(State& state) {
+void MediumVectorData(State& state) {
 
     auto N = state.range(0);
-    std::vector<Small> test (N);
-    Small a {};
+    std::vector<Medium> test (N);
+    Medium a {};
     test[rand()%N] = a;
     for (auto _ : state)
     {
@@ -73,12 +73,12 @@ void VectorData(State& state) {
     state.SetComplexityN(N);
 }
 
-BENCHMARK(VectorData)->RangeMultiplier(2)->Range(1, 256)->Complexity();
+BENCHMARK(MediumVectorData)->RangeMultiplier(2)->Range(1, 256)->Complexity();
 
-void VectorEmpty(State& state) {
+void MediumVectorEmpty(State& state) {
 
     auto N = state.range(0);
-    std::vector<Small> test {(std::size_t) N};
+    std::vector<Medium> test {(std::size_t) N};
 
     for (auto _ : state)
     {
@@ -88,12 +88,12 @@ void VectorEmpty(State& state) {
     state.SetComplexityN(N);
 }
 
-BENCHMARK(VectorEmpty)->RangeMultiplier(2)->Range(1, 256)->Complexity();
+BENCHMARK(MediumVectorEmpty)->RangeMultiplier(2)->Range(1, 256)->Complexity();
 
-void VectorSize(State& state) {
+void MediumVectorSize(State& state) {
 
     auto N = state.range(0);
-    std::vector<Small> test {(std::size_t) N};
+    std::vector<Medium> test {(std::size_t) N};
 
     for (auto _ : state)
     {
@@ -103,12 +103,12 @@ void VectorSize(State& state) {
     state.SetComplexityN(N);
 }
 
-BENCHMARK(VectorSize)->RangeMultiplier(2)->Range(1, 256)->Complexity();
+BENCHMARK(MediumVectorSize)->RangeMultiplier(2)->Range(1, 256)->Complexity();
 
-void VectorMaxSize(State& state) {
+void MediumVectorMaxSize(State& state) {
 
     auto N = state.range(0);
-    std::vector<Small> test {(std::size_t) N};
+    std::vector<Medium> test {(std::size_t) N};
 
     for (auto _ : state)
     {
@@ -118,12 +118,12 @@ void VectorMaxSize(State& state) {
     state.SetComplexityN(N);
 }
 
-BENCHMARK(VectorMaxSize)->RangeMultiplier(2)->Range(1, 256)->Complexity();
+BENCHMARK(MediumVectorMaxSize)->RangeMultiplier(2)->Range(1, 256)->Complexity();
 
-void VectorReserve(State& state) {
+void MediumVectorReserve(State& state) {
 
     auto N = state.range(0);
-    std::vector<Small> test {};
+    std::vector<Medium> test {};
 
     for (auto _ : state)
     {
@@ -135,12 +135,12 @@ void VectorReserve(State& state) {
     state.SetComplexityN(N);
 }
 
-BENCHMARK(VectorReserve)->RangeMultiplier(2)->Range(1, 256)->Complexity();
+BENCHMARK(MediumVectorReserve)->RangeMultiplier(2)->Range(1, 256)->Complexity();
 
-void VectorCapacity(State& state) {
+void MediumVectorCapacity(State& state) {
 
     auto N = state.range(0);
-    std::vector<Small> test{(std::size_t) N};
+    std::vector<Medium> test{(std::size_t) N};
 
     for (auto _ : state)
     {
@@ -149,15 +149,15 @@ void VectorCapacity(State& state) {
 
     state.SetComplexityN(N);
 }
-BENCHMARK(VectorCapacity)->RangeMultiplier(2)->Range(1, 256)->Complexity();
+BENCHMARK(MediumVectorCapacity)->RangeMultiplier(2)->Range(1, 256)->Complexity();
 
-void VectorShrinkToFit(State& state) {
+void MediumVectorShrinkToFit(State& state) {
 
     auto N = state.range(0);
     for (auto _ : state)
     {
         state.PauseTiming();
-        std::vector<Small> test (N);
+        std::vector<Medium> test (N);
         test.resize(1);
         state.ResumeTiming();
 
@@ -169,13 +169,13 @@ void VectorShrinkToFit(State& state) {
     state.SetComplexityN(N);
 }
 
-BENCHMARK(VectorShrinkToFit)->RangeMultiplier(2)->Range(1,1024)->Complexity();
+BENCHMARK(MediumVectorShrinkToFit)->RangeMultiplier(2)->Range(1,1024)->Complexity();
 
-void VectorClear(State& state) {
+void MediumVectorClear(State& state) {
 
     auto N = state.range(0);
-    Small a[N];
-    std::vector<Small> test;
+    Medium a[N];
+    std::vector<Medium> test;
 
     for (auto _ : state)
     {
@@ -194,13 +194,13 @@ void VectorClear(State& state) {
     state.SetComplexityN(N);
 }
 
-BENCHMARK(VectorClear)->RangeMultiplier(2)->Range(1, 256)->Complexity();
+BENCHMARK(MediumVectorClear)->RangeMultiplier(2)->Range(1, 256)->Complexity();
 
-void VectorInsert(State& state) {
+void MediumVectorInsert(State& state) {
 
     auto N = state.range(0);
-    Small a{};
-    std::vector<Small> test{};
+    Medium a{};
+    std::vector<Medium> test{};
     for (auto _ : state)
     {
         DoNotOptimize(test);
@@ -214,12 +214,12 @@ void VectorInsert(State& state) {
     state.SetComplexityN(N);
 }
 
-BENCHMARK(VectorInsert)->RangeMultiplier(2)->Range(1, 256)->Complexity();
+BENCHMARK(MediumVectorInsert)->RangeMultiplier(2)->Range(1, 256)->Complexity();
 
-void VectorErase(State& state) {
+void MediumVectorErase(State& state) {
     auto N = state.range(0);
-    Small a[10];
-    std::vector<Small> test;
+    Medium a[10];
+    std::vector<Medium> test;
     for (int i = 0; i < 10; i++)
     {
         a[i].data[0] = rand();
@@ -230,9 +230,9 @@ void VectorErase(State& state) {
     {
         state.PauseTiming();
         auto it = test.begin();
-        Small small{};
-        small.data[0] = rand();
-        test.insert(it, small);
+        Medium medium{};
+        medium.data[0] = rand();
+        test.insert(it, medium);
         state.ResumeTiming();
 
         DoNotOptimize(test);
@@ -244,13 +244,13 @@ void VectorErase(State& state) {
     state.SetComplexityN(N);
 }
 
-BENCHMARK(VectorErase)->RangeMultiplier(2)->Range(1, 256)->Complexity();
+BENCHMARK(MediumVectorErase)->RangeMultiplier(2)->Range(1, 256)->Complexity();
 
-void VectorPushBack(State& state) {
+void MediumVectorPushBack(State& state) {
 
     auto N = state.range(0);
-    Small a{};
-    std::vector<Small> test (N);
+    Medium a{};
+    std::vector<Medium> test (N);
 
     for(auto _ : state)
     {
@@ -265,13 +265,13 @@ void VectorPushBack(State& state) {
     state.SetComplexityN(N);
 }
 
-BENCHMARK(VectorPushBack)->RangeMultiplier(2)->Range(1, 256)->Complexity();
+BENCHMARK(MediumVectorPushBack)->RangeMultiplier(2)->Range(1, 256)->Complexity();
 
-void VectorPopBack(State& state) {
+void MediumVectorPopBack(State& state) {
 
     auto N = state.range(0);
-    Small a{};
-    std::vector<Small> test (N);
+    Medium a{};
+    std::vector<Medium> test (N);
 
     for(auto _ : state)
     {
@@ -285,15 +285,15 @@ void VectorPopBack(State& state) {
     state.SetComplexityN(N);
 }
 
-BENCHMARK(VectorPopBack)->RangeMultiplier(2)->Range(1, 256)->Complexity();
+BENCHMARK(MediumVectorPopBack)->RangeMultiplier(2)->Range(1, 256)->Complexity();
 
-void VectorResize(State& state) {
+void MediumVectorResize(State& state) {
 
     auto N = state.range(0);
     for(auto _ : state)
     {
         state.PauseTiming();
-        std::vector<Small>test(N);
+        std::vector<Medium>test(N);
         state.ResumeTiming();
 
         DoNotOptimize(test);
@@ -303,15 +303,15 @@ void VectorResize(State& state) {
     state.SetComplexityN(N);
 }
 
-BENCHMARK(VectorResize)->RangeMultiplier(2)->Range(1, 256)->Complexity();
+BENCHMARK(MediumVectorResize)->RangeMultiplier(2)->Range(1, 256)->Complexity();
 
-void VectorSwap(State& state) {
+void MediumVectorSwap(State& state) {
 
     auto N = state.range(0);
-    Small a[N];
-    Small b[N];
-    std::vector<Small> test;
-    std::vector<Small> test2;
+    Medium a[N];
+    Medium b[N];
+    std::vector<Medium> test;
+    std::vector<Medium> test2;
     for (int i = 0; i < N; i++)
     {
         a[i].data[0] = rand();
@@ -331,7 +331,7 @@ void VectorSwap(State& state) {
 
 }
 
-BENCHMARK(VectorSwap)->RangeMultiplier(2)->Range(1,256)->Complexity();
+BENCHMARK(MediumVectorSwap)->RangeMultiplier(2)->Range(1,256)->Complexity();
 
 //at, operator[], front, back, data,
 //empty, size, max_size, reserve, capacity, shrink_to_fit,
