@@ -1,0 +1,101 @@
+@startuml
+
+interface Observer {
+    + void remember(std::string question, std::string answer)
+    + std::string answer(std::string question) const
+}
+
+class ObserverImpl {
+    + void remember(std::string question, std::string answer)
+    + std::string answer(std::string question) const
+    - std::map<std::string, std::string> answers
+}
+
+Observer <|-- ObserverImpl
+
+class Point {
+    std::vector<float> coordinates
+}
+
+interface Space {
+    + void create(unsigned int dimensions)
+    + unsigned int dimensions() const
+}
+
+class SpaceImpl {
+    + void create(unsigned int dimensions)
+    + unsigned int dimensions() const
+    - unsigned int dimensionsCount
+    - std::vector<Point> points
+}
+
+Space <|-- SpaceImpl
+Space "1" o-- "*" Point
+
+interface Time {
+    + void create(bool endless)
+    + long long now() const
+    + void flow()
+}
+
+class TimeImpl {
+    + void create(bool endless)
+    + long long now() const
+    + void flow()
+    - long long year
+    - bool endless
+}
+
+Time <|-- TimeImpl
+
+class Universe {
+    + void create()
+    + void simulate(long years)
+    - Time &time
+    - Space &space
+    - Observer &observer
+}
+
+class ObserverMock {
+    MOCK_METHOD2(remember, void(std::string question, std::string answer))
+    MOCK_CONST_METHOD1(answer, std::string(std::string question))
+}
+
+Observer <|-- ObserverMock
+
+class SpaceMock {
+    MOCK_METHOD1(create, void(unsigned int dimensions))
+    MOCK_CONST_METHOD0(dimensions, unsigned int())
+}
+
+Space <|-- SpaceMock
+
+class TimeMock {
+    MOCK_METHOD1(create, void(bool endless))
+    MOCK_CONST_METHOD0(now, long long())
+    MOCK_METHOD0(flow, void())
+}
+
+Time <|-- TimeMock
+
+Universe o-- Time
+Universe o-- Space
+Universe o-- Observer
+
+package main <<Rectangle>> {
+}
+
+main ..> Universe
+main ..> SpaceImpl
+main ..> ObserverImpl
+main ..> TimeImpl
+
+package test <<Rectangle>> {
+}
+
+test .up.> Universe
+test .up.> SpaceMock
+test .up.> ObserverMock
+test .up.> TimeMock
+
+@enduml
