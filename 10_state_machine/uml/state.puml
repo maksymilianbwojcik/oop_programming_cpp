@@ -1,0 +1,68 @@
+@startuml
+
+[*] -down-> Unlocked
+
+Locked -up-> Unlocked : <b>pbToggle</b> clicked(bool)
+Unlocked -down-> Locked : <b>pbToggle</b> clicked(bool)
+
+state Unlocked {
+    [*] -down-> Startup
+    Startup -down-> Open : <b>pbOpen</b> clicked(bool)
+    Error -up-> Open : <b>pbOpen</b> clicked(bool)
+    Open -right-> View : <b>this</b> opened()
+    Open -down-> Error : <b>this</b> error()
+    Open: <b>state</b> entered() -> <b>this</b> open()
+    View -up-> Edit : <b>teText</b> textChanged()
+    View -left-> Open : <b>pbOpen</b> clicked(bool)
+    Edit -down-> Save : <b>pbSave</b> clicked(bool)
+    Save -left-> View : <b>this</b> saved()
+    Save: <b>state</b> entered() -> <b>this</b> save()
+    Save -down-> Error : <b>this</b> error()
+
+    note top of Open 
+        - displays file dialog for file selection
+        - reads the file contents
+        - sets obtained text into the <b>teText</b>
+        - stores selected file name
+    end note
+
+    note bottom of Save
+        - saves text to file
+        - selected file name is used
+    end note
+}
+
+Unlocked: <b>pbToggle</b> text <b>Lock</b>
+Unlocked: <b>pbOpen</b> enabled <b>true</b>
+Unlocked: <b>pbSave</b> enabled <b>true</b>
+Unlocked: <b>teText</b> enabled <b>true</b>
+
+note bottom of Unlocked
+    - history state is used when renentering state
+    - previous child state will be restored automatically
+end note
+
+Locked: <b>pbToggle</b> text <b>Unlock</b>
+Locked: <b>pbOpen</b> enabled <b>false</b>
+Locked: <b>pbSave</b> enabled <b>false</b>
+Locked: <b>teText</b> enabled <b>false</b>
+
+Startup: <b>pbOpen</b> enabled <b>true</b>
+Startup: <b>pbSave</b> enabled <b>false</b>
+Startup: <b>teText</b> enabled <b>false</b>
+Startup: <b>teText</b> placeholderText <b>Open file to start editing...</b>
+
+View: <b>pbOpen</b> enabled <b>true</b>
+View: <b>pbSave</b> enabled <b>false</b>
+View: <b>teText</b> enabled <b>true</b>
+
+Edit: <b>pbOpen</b> enabled <b>false</b>
+Edit: <b>pbSave</b> enabled <b>true</b>
+Edit: <b>teText</b> enabled <b>true</b>
+
+Error: <b>pbOpen</b> enabled <b>true</b>
+Error: <b>pbSave</b> enabled <b>false</b>
+Error: <b>teText</b> enabled <b>false</b>
+Error: <b>teText</b> placeholderText <b>Error ocured. Open file to start editing...</b>
+
+@enduml
