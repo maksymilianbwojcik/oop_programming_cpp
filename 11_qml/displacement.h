@@ -14,13 +14,15 @@ class Displacement : public QObject
 public:
     explicit Displacement(QObject *parent = nullptr);
     double get();
-
+    void set(double v);
 
 signals:
     void changed(double v);
 
 public slots:
-    void set(double v);
+
+private:
+    double value;
 
 };
 
